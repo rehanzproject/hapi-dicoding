@@ -208,16 +208,18 @@ const editBooksByIdHandler = (request, h) => {
       author,
       summary,
       publisher,
+      finished: pageCount === readPage,
       pageCount,
       readPage,
-      reading: true,
+      reading: false,
       updatedAt
     };
     const response = h.response({
       statusCode: 200,
       error: false,
       status: 'success',
-      message: 'Buku berhasil diperbarui'
+      message: 'Buku berhasil diperbarui',
+      data: Books[index]
     });
     response.code(200);
     return response;
